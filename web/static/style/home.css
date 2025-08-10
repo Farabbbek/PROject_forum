@@ -1,0 +1,229 @@
+/* базовое */
+* {
+    box-sizing: border-box
+}
+
+:root {
+    --bg: #fff;
+    --muted: #f1f2f4;
+    --border: #e6e7eb;
+    --text: #111;
+    --hint: #8a8f98;
+    --primary: #1f6feb;
+    --shadow: 0 1px 0 rgba(0, 0, 0, .06);
+    --badge: #c5162e;
+}
+
+body {
+    margin: 0;
+    font: 14px/1.4 Inter, system-ui, Arial, sans-serif;
+    color: var(--text);
+}
+
+/* шапка */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--bg);
+    box-shadow: var(--shadow);
+    border-bottom: 1px solid var(--border);
+}
+
+.topbar__wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 16px;
+}
+
+/* бренд */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.brand__logo {
+  height: 80px; /* подгони под высоту шапки */
+  width: auto;
+  display: block;
+}
+
+.brand__name {
+  font-weight: 600;
+  font-size: 16px;
+  color: inherit;
+}
+
+/* поиск (по центру, растягивается) */
+.search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--muted);
+    border: 1px solid var(--border);
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 12px;
+    min-width: 220px;
+}
+
+.search i {
+    color: var(--hint);
+    font-size: 14px;
+}
+
+.search input {
+    flex: 1;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    font-size: 14px;
+}
+
+.search input::placeholder {
+    color: var(--hint)
+}
+
+/* правая часть */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* кнопки/иконки */
+.btn {
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #fff;
+    cursor: pointer;
+}
+
+.btn-ghost {
+    background: #fff;
+}
+
+.iconbtn {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.iconbtn i {
+    font-size: 16px;
+    color: #333;
+}
+
+.badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    background: var(--badge);
+    color: #fff;
+    border-radius: 10px;
+    font-size: 11px;
+    display: grid;
+    place-items: center;
+    padding: 0 5px;
+    border: 2px solid #fff;
+}
+
+/* аватар + меню */
+.avatar__btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.avatar__btn img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover
+}
+
+.dropdown {
+    position: relative
+}
+
+.menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 180px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+    padding: 8px;
+    display: none;
+}
+
+.menu a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background: var(--muted)
+}
+
+.menu--right {
+    left: auto;
+    right: 0
+}
+
+/* показать меню при :focus-within (без JS) */
+.dropdown:focus-within .menu {
+    display: block
+}
+
+/* адаптив */
+@media (max-width:900px) {
+    .brand__name {
+        display: none
+    }
+}
+
+@media (max-width:680px) {
+    .topbar__wrap {
+        gap: 8px
+    }
+
+    .search {
+        min-width: 140px
+    }
+
+    .btn {
+        display: none
+    }
+
+    /* можно скрыть "Категории" на узких экранах */
+}

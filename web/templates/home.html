@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../static/style/home.css" />
+    <title>Talk</title>
+ <header class="topbar">
+  <div class="topbar__wrap">
+    <!-- Left -->
+    <a href="#" class="brand">
+      <img src="../static/img/talk.png" alt="Talk logo" class="brand__logo">
+    </a>
+
+    <!-- Center -->
+    <form class="search" action="/search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input name="q" type="search" placeholder="Search posts..." />
+    </form>
+
+    <!-- Right -->
+    <nav class="actions">
+      <div class="dropdown">
+        <button class="btn btn-ghost">
+          Category <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="menu">
+          <a href="/?category=css">CSS</a>
+          <a href="/?category=design">Design</a>
+          <a href="/?category=js">JavaScript</a>
+        </div>
+      </div>
+
+      <button class="iconbtn" aria-label="Сообщения">
+        <i class="fa-regular fa-comment-dots"></i>
+        <span class="badge">3</span>
+      </button>
+
+      <button class="iconbtn" aria-label="Уведомления">
+        <i class="fa-regular fa-bell"></i>
+        <span class="badge">5</span>
+      </button>
+
+      <div class="avatar dropdown">
+        <button class="avatar__btn">
+          <img src="../static/img" alt="You"/>
+          <span>You</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="menu menu--right">
+          <a href="/me">Profile</a>
+          <a href="/me/posts">My posts</a>
+          <a href="/settings">Settings</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+    <script src="../static/js/home.js"></script>
+  </body>
+</html>
