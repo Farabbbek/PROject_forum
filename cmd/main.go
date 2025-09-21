@@ -14,10 +14,11 @@ func main() {
 
 	db.Migrations()
 
-	http.HandleFunc("/", handlers.HomeHandler)
+	http.HandleFunc("/", handlers.HelloHandler)
 	http.HandleFunc("/auth", handlers.AuthPageHandler)
 	http.HandleFunc("/login", handlers.LoginHandler)
 	http.HandleFunc("/register", handlers.RegisterHandler)
+	http.HandleFunc("/home", handlers.HomeHandler)
 
 	fs := http.FileServer(http.Dir("web/static/"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))

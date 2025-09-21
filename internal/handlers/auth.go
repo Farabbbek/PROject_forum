@@ -40,7 +40,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		HttpOnly: true,
 		Expires:  time.Now().Add(24 * time.Hour),
 	})
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	http.Redirect(w, r, "/home", http.StatusSeeOther)
 }
 
 func AuthRequired(next http.HandlerFunc) http.HandlerFunc {
