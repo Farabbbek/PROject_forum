@@ -12,7 +12,6 @@ type Post struct {
 	Author    string    `json:"author"`
 }
 
-// PostInput
 type PostInput struct {
 	Title    string `json:"title"`
 	Content  string `json:"content"`

@@ -2,34 +2,22 @@ package main
 
 import (
 	"fmt"
-	"html/template"
+	"forum/internal/db"
+	"forum/internal/handlers"
 	"log"
 	"net/http"
 )
 
-func homeHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("templates/hello.html")
-	if err != nil {
-		http.Error(w, "Error loading page", http.StatusInternalServerError)
-		return
-	}
-	tmpl.Execute(w, nil)
-}
-
-func loginHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("templates/login_reg.html")
-	if err != nil {
-		http.Error(w, "Error loading page", http.StatusInternalServerError)
-		return
-	}
-
-	tmpl.Execute(w, nil)
-
-}
-
 func main() {
-	http.HandleFunc("/", homeHandler)
-	http.HandleFunc("/login", loginHandler)
+	db.InitDB()
+	defer db.CloseDB()
+
+	db.Migrations()
+
+	http.HandleFunc("/", handlers.HomeHandler)
+	http.HandleFunc("/auth", handlers.AuthPageHandler)
+	http.HandleFunc("/login", handlers.LoginHandler)
+	http.HandleFunc("/register", handlers.RegisterHandler)
 
 	fs := http.FileServer(http.Dir("web/static/"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
