@@ -9,11 +9,12 @@
     />
     <link rel="stylesheet" href="/web/static/style/home.css" />
     <title>Talk</title>
+    {% comment %} Shapka {% endcomment %}
  <header class="topbar">
   <div class="topbar__wrap">
     <!-- Left -->
     <a href="#" class="brand">
-      <img src="../static/img/talk.png" alt="Talk logo" class="brand__logo">
+      <img src="/web/static/img/talk.png" alt="Talk logo" class="brand__logo">
     </a>
 
     <!-- Center -->
@@ -29,7 +30,7 @@
           Category <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="menu">
-          <a href="/?category=css">CSS</a>
+          <a href="/">CSS</a>
           <a href="/?category=design">Design</a>
           <a href="/?category=js">JavaScript</a>
         </div>
@@ -47,24 +48,60 @@
 
       <div class="avatar dropdown">
         <button class="avatar__btn">
-          <img src="../static/img" alt="You"/>
+          <img src="/web/static/img/profile.jpg" alt="You"/>
           <span>You</span>
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="menu menu--right">
-          <a href="/me">Profile</a>
-          <a href="/me/posts">My posts</a>
+          <a href="/profile">Profile</a>
+          <a href="/profile/posts">My posts</a>
           <a href="/settings">Settings</a>
           <a href="/logout">Logout</a>
         </div>
       </div>
     </nav>
   </div>
+  
+
+  <div class = "filterbar">
+  <button class="filter">
+    <span class="icon"><i class="fa-solid fa-briefcase"></i> All</span>
+  </button>
+  <button class="filter">
+    <span class="icon"><i class="fa-regular fa-clock"></i> New</span>
+  </button>
+  <button class="filter">
+    <span class="icon"><i class="fa-solid fa-arrow-trend-up"></i> Top</span>
+  </button>
+  <button class="filter">
+    <span class="icon"><i class="fa-regular fa-star"></i> My</span>
+  </button>
+  <button class="filter">
+    <span class="icon"><i class="fa-regular fa-heart"></i> Liked</span>
+  </button>      
+</div>
+  
+
+  <div class = "main_content" style = "width: 100%; height: 100%;">
+    <div class = "block" style ="float: left;width: 30%" >
+      <div class = ""> 
+asdad
+      </div>
+
+    </div> 
+    <div class = "block" style ="float: right;width: 70%" >
+      <div> 
+asdasd
+      </div>
+    </div> 
 
 
+
+
+  </div>
   
 
 </header>
-    <script src="/static/js/home.js"></script>
+    <script src="/web/static/js/home.js"></script>
   </body>
 </html>

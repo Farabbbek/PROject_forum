@@ -225,5 +225,64 @@ body {
         display: none
     }
 
-    /* можно скрыть "Категории" на узких экранах */
+}
+
+/*Filter BAR */
+.filterbar {
+  display: flex;
+  gap: 8px;
+  padding: 6px 16px;
+  background: #fff;
+  border-radius: 12px;
+  justify-content: center;
+}
+
+.filter{
+  display: flex;
+  align-items: center;
+  min-width: 48px;
+  height: 29px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  font-family: 'Quicksand', Arial, sans-serif;
+  font-size: 0.95em;
+  padding: 0 7px;
+}
+
+.filter:hover {
+  background: #ede3d5;
+}
+
+.icon {
+  font-size: 0.99em;
+  margin-right: 5px;
+  opacity: 0.83;
+}
+
+.label {
+  font-size: 0.95em;
+  font-weight: 500;
+  color: inherit;
+}
+
+
+
+
+
+
+
+/* Main content column*/
+.main_content{
+    display: flex;
+    height: 100vh;
+}
+
+.block{
+    flex: 1;
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
 }

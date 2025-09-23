@@ -21,5 +21,4 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	tmpl.Execute(w, nil)
-
 }

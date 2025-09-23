@@ -8,6 +8,19 @@ import (
 	"net/http"
 )
 
+func ErrorpageRender(w http.ResponseWriter, r *http.Request, status int) {
+	switch status {
+	case http.StatusNotFound:
+		http.ServeFile(w, r, "templates/errors/404.html")
+	case http.StatusInternalServerError:
+		http.ServeFile(w, r, "templates/errors/500.html")
+	case http.StatusBadRequest:
+		http.ServeFile(w, r, "templates/errors/400.html")
+	default:
+		http.Error(w, http.StatusText(status), status)
+	}
+}
+
 func main() {
 	db.InitDB()
 	defer db.CloseDB()
@@ -19,6 +32,14 @@ func main() {
 	http.HandleFunc("/login", handlers.LoginHandler)
 	http.HandleFunc("/register", handlers.RegisterHandler)
 	http.HandleFunc("/home", handlers.HomeHandler)
+
+	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	// 	if r.URL.Path != "/" {
+	// 		ErrorpageRender(w, r, http.StatusNotFound)
+	// 		return
+	// 	}
+	// 	handlers.HomeHandler(w, r)
+	// })
 
 	fs := http.FileServer(http.Dir("web/static/"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
